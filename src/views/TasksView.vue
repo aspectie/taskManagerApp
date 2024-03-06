@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    Home
+    Tasks
   </main>
 </template>

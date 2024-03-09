@@ -4,7 +4,7 @@
     The task list is empty
   </h1>
   <Task v-for="task in tasks"
-    :name="task.name"
+    :title="task.title"
     :key="task.id"
   />  
 </template>

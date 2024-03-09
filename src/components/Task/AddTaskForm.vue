@@ -9,8 +9,8 @@
 </template>
 
 <script setup>
-  import {reactive} from 'vue';
-  import {useTasksStore} from '@/stores/tasks';
+  import { reactive } from 'vue';
+  import { useTasksStore } from '@/stores/tasks';
 
   const initialState = {
     title: ''

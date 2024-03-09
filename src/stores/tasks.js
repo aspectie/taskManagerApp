@@ -9,6 +9,10 @@ export const useTasksStore = defineStore('tasks', () => {
     tasks.value.push({...task, id: uuid()});
   }
 
+  function remove(id) {
+    tasks.value = tasks.value.filter((task) => task.id !== id);
+  }
+
   onMounted(() => {
     const storageTasks = localStorage.getItem('tasks');
 
@@ -23,5 +27,5 @@ export const useTasksStore = defineStore('tasks', () => {
       deep: true
   })
 
-  return { tasks, add }
+  return { tasks, add, remove }
 })

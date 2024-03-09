@@ -5,19 +5,25 @@
   </h1>
   <Task v-for="task in tasks"
     :title="task.title"
+    :id="task.id"
     :key="task.id"
+    @onRemoveTask="onRemoveTask"
   />  
 </template>
 
 <script setup>
+  import { ref, watch } from 'vue'
   import { useTasksStore } from '@/stores/tasks';
-  import { ref, onMounted } from 'vue'
   import Task from './Task.vue'
 
   const tasks = ref([]);
   const store = useTasksStore();
+ 
+  function onRemoveTask(id) {
+    store.remove(id);
+  }
 
-  onMounted(() => {
+  watch(() => store.tasks, () => {
     tasks.value = store.tasks;
   })
 </script>

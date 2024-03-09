@@ -4,10 +4,13 @@
     The task list is empty
   </h1>
   <Task v-for="task in tasks"
-    :title="task.title"
-    :id="task.id"
     :key="task.id"
+    :id="task.id"
+    :title="task.title"
+    :isEditable="task.isEditable"
     @onRemoveTask="onRemoveTask"
+    @onEditTask="onEditTask"
+    @onSaveTask="onSaveTask"
   />  
 </template>
 
@@ -21,6 +24,15 @@
  
   function onRemoveTask(id) {
     store.remove(id);
+  }
+
+  function onEditTask(id) {
+    store.setIsEditable(id, true);
+  }
+
+  function onSaveTask(task) {
+    store.setIsEditable(task.id, false);
+    store.update(task)
   }
 
   watch(() => store.tasks, () => {

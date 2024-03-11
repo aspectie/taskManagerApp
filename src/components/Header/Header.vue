@@ -28,6 +28,9 @@
     text-decoration: none;
     color: black;
   }
+  a:not(.router-link-active):hover {
+    color: var(--orange-color)
+  }
   a:not(:last-child) {
     margin-right: 20px;
   }

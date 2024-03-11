@@ -41,19 +41,16 @@
 
 <style scoped>
   h2 {
-   margin-bottom: 20px;
+   margin-bottom: 40px;
    font-weight: 300;
   }
   input {
-    font-size: 14px;
-    padding: 5px;
-  }
-  label {
-    display: block;
-    margin-bottom: 5px;
+    width: 50%;
   }
   .form__field {
     margin-bottom: 20px;
+    
+    width: 50%;
   }
   .submit {
     font-size: 16px;

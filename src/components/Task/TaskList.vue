@@ -1,8 +1,8 @@
 <template>
-  <h1 v-if="tasks.length > 0">Tasks:</h1>
-  <h1 v-else>
+  <h2 v-if="tasks.length > 0">Tasks</h2>
+  <h2 v-else>
     The task list is empty
-  </h1>
+  </h2>
   <Task v-for="task in tasks"
     :key="task.id"
     :id="task.id"
@@ -31,8 +31,10 @@
   }
 
   function onSaveTask(task) {
-    store.setIsEditable(task.id, false);
-    store.update(task)
+    if (task.title !== '') {
+      store.setIsEditable(task.id, false);
+      store.update(task)
+    }
   }
 
   onMounted(() => {
@@ -43,3 +45,11 @@
     tasks.value = store.tasks;
   })
 </script>
+
+<style scoped>
+  h2 {
+    font-weight: 300;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+</style>

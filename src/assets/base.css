@@ -1,14 +1,31 @@
+:root {
+  --accent-color: rgb(108, 36, 243);
+  --orange-color: #f3bd24;
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
 }
-
 body {
   min-height: 100vh;
 }
 
-:root {
-  --accent-color: rgb(108, 36, 243);
+input {
+  font-size: 14px;
+  padding: 5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }

@@ -1,22 +1,28 @@
 <template>
   <div class="task" v-if="isEditable">
-    <input type="text" v-model="title"/>
+    <div class="task__info">
+      <label for="title">Title:</label>
+      <input type="text" v-model="title" id="title"/>
+    </div>
     <div class="task__buttons">
-      <button @click="onSaveTask">Save</button>
-      <button @click="onRemoveTask">Remove</button>
+      <button @click="onSaveTask" class="save">Save</button>
+      <button @click="onRemoveTask" class="remove">Remove</button>
     </div>
   </div>
   <div class="task" v-else>
-    <p class="task__title">Title: {{ props.title}}</p>
+    <div class="task__info">
+      <p class="task__title">Title:</p>
+      <p>{{ props.title}}</p>
+    </div>
     <div class="task__buttons">
-      <button @click="onEditTask">Edit</button>
-      <button @click="onRemoveTask">Remove</button>
+      <button @click="onEditTask" class="edit">Edit</button>
+      <button @click="onRemoveTask" class="remove">Remove</button>
     </div>
   </div>
 </template>
 
 <script setup>
-  import { defineProps, defineEmits, ref, watch } from 'vue';
+  import { defineProps, defineEmits, ref, unref, watch } from 'vue';
 
   const props = defineProps({
     id: String,
@@ -39,7 +45,7 @@
   function onSaveTask() {
     emit('onSaveTask', {
       id: props.id,
-      title
+      title: unref(title)
     })
   }
 
@@ -52,10 +58,36 @@
   .task {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    min-height: 80px;
   }
-
-  .task__buttons button{
+  .task__info {
+    padding: 10px 20px;
+    width: 100%;
+  }
+  .task__title {
+    margin-bottom: 10px;
+  }
+  input {
+    width: 100%;
+    margin-right: 40px;
+  }
+  .task__buttons {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+  }
+  .task__buttons button {
+    width: 100%;
     margin-left: 10px;
+    font-size: 14px;
+  }
+  .remove:hover {
+    color: red;
+  }
+  .edit:hover, .save:hover {
+    color: var(--orange-color)
   }
 </style>

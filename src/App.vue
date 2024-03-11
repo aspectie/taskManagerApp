@@ -13,7 +13,7 @@
     color: var(--accent-color);
   }
   main {
-    padding: 20px 0;
+    padding: 40px 0;
     font-size: 18px;
   }
 </style>

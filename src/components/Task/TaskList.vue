@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-  import { ref, watch } from 'vue'
+  import { ref, watch, onMounted } from 'vue'
   import { useTasksStore } from '@/stores/tasks';
   import Task from './Task.vue'
 
@@ -34,6 +34,10 @@
     store.setIsEditable(task.id, false);
     store.update(task)
   }
+
+  onMounted(() => {
+    tasks.value = store.tasks;
+  })
 
   watch(() => store.tasks, () => {
     tasks.value = store.tasks;

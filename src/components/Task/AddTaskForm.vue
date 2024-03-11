@@ -32,8 +32,10 @@
   }
 
   function onSubmit() {
-    tasks.add(formData);
-    resetForm();
+    if (formData.title.trim() !== '') {
+      tasks.add(formData);
+      resetForm();
+    }
   }
 </script>
 

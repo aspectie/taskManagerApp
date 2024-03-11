@@ -22,7 +22,6 @@
   nav {
     padding: 20px 0;
     font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
   }
   a {

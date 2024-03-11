@@ -1,6 +1,8 @@
 <template>
   <main>
-    <AddTaskForm/>
+    <div class="task-form">
+      <AddTaskForm/>
+    </div>
     <TaskList/>
   </main>
 </template>
@@ -9,3 +11,9 @@
   import {TaskList} from '@/components'
   import {AddTaskForm} from '@/components'
 </script>
+
+<style scoped>
+  .task-form {
+    margin-bottom: 40px;
+  }
+</style>

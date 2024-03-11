@@ -8,3 +8,7 @@
 body {
   min-height: 100vh;
 }
+
+:root {
+  --accent-color: rgb(108, 36, 243);
+}

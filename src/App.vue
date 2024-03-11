@@ -10,7 +10,7 @@
 
 <style>
   a.router-link-active {
-    color: rgb(108, 36, 243);
+    color: var(--accent-color);
   }
   main {
     padding: 20px 0;
